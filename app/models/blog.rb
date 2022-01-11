@@ -18,5 +18,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Blog < ApplicationRecord
+  validates :title, presence: true
+  valideates :content, presence: true, length: {maximum: 140}
   belongs_to :user
 end
