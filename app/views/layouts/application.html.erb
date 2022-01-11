@@ -20,7 +20,7 @@
             <ul class="nav navbar-nav">
               <% if logged_in? %>
                 <li class="nav-item"><%= link_to "my acount", user_path(session[:user_id]), class: "nav-link" %></li>
-                <li class="nav-item"><%= link_to "logout", session_path, method: :delete, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to "logout", session_path(session[:user_id]), method: :delete, class: "nav-link" %></li>
               <% else %>
                 <li class="nav-item"><%= link_to "signnup", new_user_path, class: "nav-link" %></li>
                 <li class="nav-item"><%= link_to "login", new_session_path, class:"nav-link" %></li>
