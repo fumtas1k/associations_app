@@ -28,13 +28,8 @@
     </header>
     <main>
       <% flash.each do |key, value| %>
-        <% alert = "success" %>
-        <% if key != "notice" %>
-          <% alert = "danger" %>
-        <% end %>
-        <div class="alert alert-<%= alert %>">
-          <%= value %>
-        </div>
+        <% alert = key == "danger" ? "danger" : "success" %>
+        <%= content_tag(:div, value, class: "alert alert-#{alert}") %>
       <% end %>
       <div class="container">
         <%= yield %>

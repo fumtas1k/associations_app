@@ -1,4 +1,19 @@
 .signform-wrapper {
   width: 100%;
+  margin: auto;
+  max-width: 400px;
+}
+
+.show-wrapper {
+  width: 100%;
+  margin: 20px auto 0;
+  padding-top: 10px;
+  border-top: 1px dashed rgb(218, 129, 94);
   max-width: 600px;
+}
+
+.show-item {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgb(218, 129, 94);
 }

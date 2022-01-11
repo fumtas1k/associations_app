@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% provide(:title, "詳細") %>
+<h1>詳細</h1>
+
+<div class="show-wrapper">
+  <div class="show-item">
+    <div class="show-ttl">
+      <h4>お名前</h4>
+    </div>
+    <div class="show-txt">
+      <span><%= @user.name %></span>
+    </div>
+  </div>
+  <div class="show-item">
+    <div class="show-ttl">
+      <h4>メールアドレス</h4>
+    </div>
+    <div class="show-txt">
+      <span><%= @user.email %></span>
+    </div>
+  </div>
+</div>

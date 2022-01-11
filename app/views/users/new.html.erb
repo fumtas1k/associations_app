@@ -14,22 +14,22 @@
   <% end %>
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control", "aria-describedby": "nameHelp", placeholder: "例: yamada taro" %>
+    <%= f.text_field :name, class: "form-control", "aria-describedby": "nameHelp", placeholder: "例: yamada taro", required: true %>
     <small id="nameHelp" class="form-text text-muted">アルファベットで入力して下さい。</small>
   </div>
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control", "area-describedby": "emailHelp", placeholder: "例: aaaaa@xxx.xxx" %>
+    <%= f.email_field :email, class: "form-control", "area-describedby": "emailHelp", placeholder: "例: aaaaa@xxx.xxx", required: true %>
     <small id="emalHelp" class="form-text text-muted">メールアドレスは他の人と共有しない下さい。</small>
   </div>
     <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control", "area-describedby": "passwordlHelp", minlength: 6 %>
+    <%= f.password_field :password, class: "form-control", "area-describedby": "passwordlHelp", minlength: 6, required: true %>
     <small id="passwordHelp" class="form-text text-muted">6文字以上で入力して下さい。</small>
   </div>
   <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: "form-control", "area-describedby": "password_confirmationlHelp", minlength: 6 %>
+    <%= f.password_field :password_confirmation, class: "form-control", "area-describedby": "password_confirmationlHelp", minlength: 6, required: true %>
     <small id="password_confirmationHelp" class="form-text text-muted">上記と同じものを入力して下さい。</small>
   </div>
   <%= f.submit "登録確認", class: "btn btn-primary" %>
