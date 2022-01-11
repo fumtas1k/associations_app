@@ -1,0 +1,11 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+ body a {
+   color: inherit;
+   &:hover {
+     text-decoration: none;
+   }
+ }

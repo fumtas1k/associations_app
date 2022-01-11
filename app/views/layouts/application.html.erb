@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AssociationsApp</title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <%= link_to "Blogs", blogs_path, class: "navbar-brand" %>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#gnavi">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="gnavi" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="nav-item"><%= link_to "signup", new_user_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to "login", new_session_path, class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to "logout", sessions_path, class: "nav-link" %></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <% flash.each do |key, value| %>
+        <% alert = "success" %>
+        <% if key != "notice" %>
+          <% alert = "danger" %>
+        <% end %>
+        <div class="alert alert-<%= alert %>">
+          <%= value %>
+        </div>
+      <% end %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+    <footer></footer>
   </body>
 </html>
