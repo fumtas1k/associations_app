@@ -10,7 +10,6 @@
     </div>
   <% end %>
   <div class="form-group">
-    <%= f.hidden_field :user_id, value: session[:user_id] %>
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control", "aria-describedby": "titleHelp", placeholder: "例: ビッグニュース", required: true %>
     <small id="titleHelp" class="form-text text-muted">空白禁止</small>

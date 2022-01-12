@@ -1,13 +1,13 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[show edit update destroy]
   def new
-    @blog = Blog.new
+    @blog = current_user.blogs.build
   end
 
   def create
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.biuld(blog_params)
     if @blog.save
-      flash.now[:notice] = "ブログを投稿しました!"
+      flash[:notice] = "ブログを投稿しました!"
       redirect_to blogs_path
     else
       render :new
@@ -38,13 +38,13 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    flash.now[:danger] = "ブログを削除しました!"
+    flash[:danger] = "ブログを削除しました!"
     redirect_to blogs_path
   end
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :content, :user_id)
+    params.require(:blog).permit(:title, :content)
   end
 
   def set_blog
