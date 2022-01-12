@@ -17,6 +17,10 @@
       <span><%= @user.email %></span>
     </div>
   </div>
+  <div class="btns-wrapper">
+    <%= link_to "編集", edit_user_path(@user.id), class: "btn btn-info" %>
+    <%= link_to "退会", user_path(@user.id), class: "btn btn-danger", method: :delete, data: {confirm: "本当に退会しますか？"} %>
+  </div>
 </div>
 
 <div class="blogs-wrapper">

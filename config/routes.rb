@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "blogs#index"
-  resources :users, only: %i[new create show edit update destroy] do
+  resources :users do
     collection do
       post :confirm
     end

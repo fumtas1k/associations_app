@@ -4,13 +4,22 @@ class BlogsController < ApplicationController
     @blog = current_user.blogs.build
   end
 
+  def confirm
+    @blog = current_user.blogs.build(blog_params)
+    render :new if @blog.invalid?
+  end
+
   def create
-    @blog = current_user.blogs.biuld(blog_params)
-    if @blog.save
-      flash[:notice] = "ブログを投稿しました!"
-      redirect_to blogs_path
-    else
+    @blog = current_user.blogs.build(blog_params)
+    if params[:back]
       render :new
+    else
+      if @blog.save
+        flash[:notice] = "ブログを投稿しました!"
+        redirect_to blogs_path
+      else
+        render :new
+      end
     end
   end
 
@@ -33,9 +42,6 @@ class BlogsController < ApplicationController
     end
   end
 
-  def confirm
-  end
-
   def destroy
     @blog.destroy
     flash[:danger] = "ブログを削除しました!"
@@ -48,6 +54,10 @@ class BlogsController < ApplicationController
   end
 
   def set_blog
-    @blog = Blog.find(params[:id])
+    if params[:id] == "confirm"
+      redirect_to blogs_path
+    else
+      @blog = Blog.find(params[:id])
+    end
   end
 end
