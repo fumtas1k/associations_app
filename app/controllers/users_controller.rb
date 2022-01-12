@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required, only: %i[new create]
   def new
     @user = User.new
   end
@@ -6,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:notice] = "サインアップできました。"
       redirect_to @user
     else

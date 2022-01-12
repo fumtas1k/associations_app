@@ -1,0 +1,46 @@
+.blogs-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.blog-wrapper {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 1px 2px 5px rgb(155, 155, 155);
+  padding: 15px;
+  &:hover {
+    box-shadow: 1px 2px 5px rgb(255, 208, 208);
+    color: rgb(146, 126, 126);
+  }
+}
+.blog-header {
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.blog-header ul{
+  width: 100%;
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+  li {
+    list-style: none;
+    &hover {
+      color: inherit;
+    }
+  }
+}
+.blog-title span, .author-name span {
+  font-weight: bold;
+}
+
+.blog-items p{
+  overflow-wrap: break-word;
+}
+
+.btns-wrapper {
+  padding: 10px 0 0 10px;
+}

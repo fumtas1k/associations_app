@@ -1,2 +1,12 @@
-<h1>Blogs#show</h1>
-<p>Find me in app/views/blogs/show.html.erb</p>
+<% provide(:title, "詳細") %>
+<h1>詳細</h1>
+<div class="blogs-wrapper">
+  <%= render partial: @blog %>
+
+  <% if session[:user_id] == @blog.user_id %>
+    <div class="btns-wrapper">
+      <%= link_to "編集", edit_blog_path, class: "btn btn-info" %>
+      <%= link_to "削除", @blog, class: "btn btn-danger", method: :delete, data: {confirm: "本当に削除しますか？"} %>
+    </div>
+    <% end %>
+</div>

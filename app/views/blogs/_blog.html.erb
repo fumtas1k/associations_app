@@ -1,0 +1,12 @@
+<div class="blog-wrapper">
+  <div class="blog-header">
+    <ul>
+      <li><span class="author-name"><span>投稿者: </span><%= blog.user.name %></span></li>
+      <li><span class="created_at"><%= time_ago_in_words(blog.created_at) %></span></li>
+    </ul>
+  </div>
+  <div class="blog-items">
+    <p class="blog-title"><span>title: </span><%= blog.title %></p>
+    <p class="blog-content"><%= blog.content %></p>
+  </div>
+</div>
