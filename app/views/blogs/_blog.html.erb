@@ -8,5 +8,14 @@
   <div class="blog-items">
     <p class="blog-title"><span>title: </span><%= blog.title %></p>
     <p class="blog-content"><%= blog.content %></p>
+    <div class="favorites-wrapper">
+      <% if blog.user_id != current_user.id %>
+        <% if blog.favorite_users.include?(current_user) %>
+          <%= link_to("お気に入り解除する", favorite_path(id: current_user.favorites.find_by(blog_id: blog.id).id), method: :delete, class: "btn btn-danger") %>
+        <% else %>
+          <%= link_to "お気に入りにする", favorites_path(blog_id: blog.id), method: :post, class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
